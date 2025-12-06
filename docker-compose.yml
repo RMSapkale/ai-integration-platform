@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # 1. Frontend: Next.js Dashboard
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - control-plane
+    restart: always
+
+  # 2. Backend: FastAPI Control Plane
+  control-plane:
+    build:
+      context: ./control-plane
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./control-plane:/app
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/iwings
+    depends_on:
+      - db
+    restart: always
+
+  # 3. Database: PostgreSQL
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=iwings
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  postgres_data:

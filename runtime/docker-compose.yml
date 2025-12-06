@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  flow-runtime:
+    build: .
+    container_name: flow-runtime
+    restart: unless-stopped
+    
+    volumes:
+      # Mount flow export directory
+      - ./flows:/flows:ro  # Read-only!
+      - ./logs:/logs
+    
+    environment:
+      # Runtime configuration
+      - FLOW_FILE=/flows/flow.json
+      - ENCRYPTION_KEY_FILE=/flows/encryption.key
+      - LOG_LEVEL=INFO
+      - EXECUTION_MODE=scheduled
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Network (optional)
+    # networks:
+    #   - flow-network
+
+# Optional: Multi-flow runtime
+  flow-runtime-api:
+    build: .
+    container_name: flow-runtime-api
+    restart: unless-stopped
+    
+    ports:
+      - "8080:8080"
+    
+    volumes:
+      - ./flows:/flows:ro
+      - ./logs:/logs
+    
+    environment:
+      - EXECUTION_MODE=api
+      - API_PORT=8080
+    
+    command: ["python", "-m", "uvicorn", "runtime_api:app", "--host", "0.0.0.0", "--port", "8080"]
+
+# networks:
+#   flow-network:
+#     driver: bridge

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "bac0b26e-be8b-4f91-9e56-c42e56637dc7",
+    "name": "Persistence Test Flow Mapper 1",
+    "description": "Auto-generated mapper",
+    "type": "visual",
+    "mapping_rules": [
+      {
+        "source_field": "firstName",
+        "target_field": "GivenName",
+        "transformation": null
+      },
+      {
+        "source_field": "lastName",
+        "target_field": "FamilyName",
+        "transformation": null
+      }
+    ],
+    "created_at": "2025-12-06T17:56:05.826827",
+    "updated_at": "2025-12-06T17:56:05.826831"
+  },
+  {
+    "id": "f4d6bfdd-2f37-495b-903b-ff687f1d0caa",
+    "name": "Test JS Mapper",
+    "description": null,
+    "type": "javascript",
+    "mapping_rules": [],
+    "javascript_code": "\nfunction transform(input) {\n  return {\n    fullName: input.firstName + \" \" + input.lastName,\n    emailDomain: input.email.split(\"@\")[1],\n    timestamp: new Date().toISOString()\n  };\n}\n",
+    "xslt_template": null,
+    "source_schema": null,
+    "target_schema": null,
+    "created_at": "2025-12-06T17:59:28.819893",
+    "updated_at": "2025-12-06T17:59:28.819893"
+  }
+]
