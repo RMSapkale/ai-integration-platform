@@ -118,7 +118,7 @@ export default function LookupsPage() {
 
     const exportCSV = async (lookupId: string) => {
         try {
-            const response = await fetch(`http://localhost:8000/lookups/${lookupId}/export-csv`)
+            const response = await fetch(`http://135.235.194.170:8000/lookups/${lookupId}/export-csv`)
             const blob = await response.blob()
             const url = window.URL.createObjectURL(blob)
             const a = document.createElement('a')

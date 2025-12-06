@@ -92,7 +92,7 @@ func GetMockJob() Job {
 		},
 		Destination: DestinationConfig{
 			Type: "SFTP",
-			Host: "localhost:2222",
+			Host: "135.235.194.170:2222",
 			User: "tester",
 			Path: "/upload/users.json",
 			Auth: map[string]string{"password": "password"},

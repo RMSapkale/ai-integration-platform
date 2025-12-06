@@ -69,10 +69,10 @@ docker-compose up -d --build
 
 ### 2. Access the Application
 
-- **Frontend Dashboard**: http://localhost:3000
-- **Backend API**: http://localhost:8000
-- **API Documentation**: http://localhost:8000/docs
-- **Database**: localhost:5432
+- **Frontend Dashboard**: http://135.235.194.170:3000
+- **Backend API**: http://135.235.194.170:8000
+- **API Documentation**: http://135.235.194.170:8000/docs
+- **Database**: 135.235.194.170:5432
 
 ### 3. Stop All Services
 
@@ -156,12 +156,12 @@ docker inspect iwings_frontend | grep -A 10 Health
 docker exec -it iwings_db psql -U postgres -d iwings
 
 # Using psql client (if installed locally)
-psql -h localhost -p 5432 -U postgres -d iwings
+psql -h 135.235.194.170 -p 5432 -U postgres -d iwings
 ```
 
 ### Database Credentials
 
-- **Host**: localhost (or `db` from within containers)
+- **Host**: 135.235.194.170 (or `db` from within containers)
 - **Port**: 5432
 - **Database**: iwings
 - **Username**: postgres
@@ -406,7 +406,7 @@ DEBUG=False
 
 ### `dashboard/.env`
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_PUBLIC_API_URL=http://135.235.194.170:8000
 NODE_ENV=production
 ```
 

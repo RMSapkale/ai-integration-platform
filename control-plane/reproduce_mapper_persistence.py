@@ -3,7 +3,7 @@ import requests
 import json
 import os
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://135.235.194.170:8000"
 
 def test_mapper_persistence():
     print("Testing Mapper Persistence...")

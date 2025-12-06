@@ -2,7 +2,7 @@
 # Usage: .\docker-manage.ps1 [command]
 
 param(
-    [Parameter(Position=0)]
+    [Parameter(Position = 0)]
     [string]$Command = "help"
 )
 
@@ -40,9 +40,9 @@ function Start-Services {
     docker-compose up -d
     Write-Host ""
     Write-Host "Services started! Access them at:" -ForegroundColor Cyan
-    Write-Host "  Frontend: http://localhost:3000"
-    Write-Host "  Backend:  http://localhost:8000"
-    Write-Host "  Database: localhost:5432"
+    Write-Host "  Frontend: http://135.235.194.170:3000"
+    Write-Host "  Backend:  http://135.235.194.170:8000"
+    Write-Host "  Database: 135.235.194.170:5432"
 }
 
 function Stop-Services {
@@ -82,7 +82,8 @@ function Clean-All {
         docker-compose down -v
         docker system prune -f
         Write-Host "Cleanup complete!" -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host "Cleanup cancelled." -ForegroundColor Yellow
     }
 }

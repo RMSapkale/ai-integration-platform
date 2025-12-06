@@ -305,9 +305,9 @@ Optimize builds by excluding:
    ```
 
 3. **Access the application:**
-   - Frontend: http://localhost:3000
-   - Backend: http://localhost:8000
-   - API Docs: http://localhost:8000/docs
+   - Frontend: http://135.235.194.170:3000
+   - Backend: http://135.235.194.170:8000
+   - API Docs: http://135.235.194.170:8000/docs
 
 4. **Monitor logs:**
    ```bash

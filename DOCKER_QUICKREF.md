@@ -42,10 +42,10 @@ docker-compose down
 
 | Service | URL | Description |
 |---------|-----|-------------|
-| Frontend | http://localhost:3000 | Next.js Dashboard |
-| Backend API | http://localhost:8000 | FastAPI Control Plane |
-| API Docs | http://localhost:8000/docs | Swagger UI |
-| Database | localhost:5432 | PostgreSQL |
+| Frontend | http://135.235.194.170:3000 | Next.js Dashboard |
+| Backend API | http://135.235.194.170:8000 | FastAPI Control Plane |
+| API Docs | http://135.235.194.170:8000/docs | Swagger UI |
+| Database | 135.235.194.170:5432 | PostgreSQL |
 
 ## 🔧 Common Operations
 
@@ -106,7 +106,7 @@ docker-compose restart dashboard
 docker exec -it iwings_db psql -U postgres -d iwings
 
 # Using local psql
-psql -h localhost -p 5432 -U postgres -d iwings
+psql -h 135.235.194.170 -p 5432 -U postgres -d iwings
 ```
 
 ### Backup & Restore
@@ -119,7 +119,7 @@ docker exec -i iwings_db psql -U postgres iwings < backup.sql
 ```
 
 ### Database Credentials
-- **Host**: localhost
+- **Host**: 135.235.194.170
 - **Port**: 5432
 - **Database**: iwings
 - **Username**: postgres
@@ -268,7 +268,7 @@ SECRET_KEY=your_secret_key
 
 **dashboard/.env:**
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_PUBLIC_API_URL=http://135.235.194.170:8000
 ```
 
 ## 🎯 Best Practices

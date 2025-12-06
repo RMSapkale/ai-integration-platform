@@ -15,7 +15,7 @@ In the platform UI:
 
 Or via API:
 ```bash
-curl -X POST http://localhost:8000/flows/{flow-id}/export \
+curl -X POST http://135.235.194.170:8000/flows/{flow-id}/export \
   -o flow-export.zip
 ```
 

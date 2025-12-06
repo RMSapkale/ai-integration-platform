@@ -3,7 +3,7 @@ import requests
 import json
 import uuid
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://135.235.194.170:8000"
 
 def test_js_mapper():
     print("Testing JavaScript Mapper Execution...")

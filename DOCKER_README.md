@@ -39,10 +39,10 @@ docker-compose up -d --build
 
 ### 3. Access Application
 
-- 🎨 **Frontend**: http://localhost:3000
-- 🔧 **Backend API**: http://localhost:8000
-- 📚 **API Docs**: http://localhost:8000/docs
-- 🗄️ **Database**: localhost:5432
+- 🎨 **Frontend**: http://135.235.194.170:3000
+- 🔧 **Backend API**: http://135.235.194.170:8000
+- 📚 **API Docs**: http://135.235.194.170:8000/docs
+- 🗄️ **Database**: 135.235.194.170:5432
 
 ## 📁 File Structure
 
@@ -153,7 +153,7 @@ docker-compose up -d --build
    ```env
    POSTGRES_PASSWORD=your_secure_password
    SECRET_KEY=your_secret_key
-   NEXT_PUBLIC_API_URL=http://localhost:8000
+   NEXT_PUBLIC_API_URL=http://135.235.194.170:8000
    ```
 
 ### Database Initialization
@@ -171,7 +171,7 @@ Add SQL scripts to `database/init-scripts/`:
 docker exec -it iwings_db psql -U postgres -d iwings
 
 # Using local psql client
-psql -h localhost -p 5432 -U postgres -d iwings
+psql -h 135.235.194.170 -p 5432 -U postgres -d iwings
 ```
 
 ### Backup Database
